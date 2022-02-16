@@ -2,7 +2,7 @@
 [Check out the demo here🎬]()
 
 ## Description
-This is a Profile Viewer Application. It fetches character data from SWAPI and media from Unsplash, then uses them to render Star Wars character profiles for user view.
+This is a Profile Viewer Application. It fetches Star Wars character data from SWAPI and media from Unsplash, then uses them to render profiles for user view.
 
 Similar to large scale counterparts, it is designed for straightforward use with minimal explanation required for the user.
 
