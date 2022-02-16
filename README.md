@@ -1,4 +1,4 @@
-# Intergalactic Movie Database (IGMDB) Profiler SPA
+# Intergalactic Movie Database (IGMDB) React with Redux Microservice Profiler SPA
 [Check out the demo here🎬]()
 
 ## Description
