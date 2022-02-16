@@ -1,3 +1,11 @@
+# Intergalactic Movie Database (IGMDB) React-Redux Profiler SPA
+[Check out the demo here🎬]()
+
+## Description
+This is a Profile Viewer Application. It fetches Star Wars character data from SWAPI and media from Unsplash, then uses them to render profiles for user view.
+
+Similar to large scale counterparts, it is designed for straightforward use with minimal explanation required for the user.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -68,3 +76,12 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Contributing
+Bug reports and pull requests are welcome on GitHub at https://github.com/mwpenn94/kaleidoscope. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the code of conduct.
+
+## License
+The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
+
+## Code of Conduct
+Everyone interacting in IGMDB's project's codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/mwpenn94/IGMDB-React-Redux-Microservice-Profiler-SPA/blob/main/CODE_OF_CONDUCT.md).
