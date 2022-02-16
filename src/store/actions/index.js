@@ -30,10 +30,12 @@ export const fetchPeople = () => async dispatch => {
     ...user,
     id: user.url.split('/').filter(seg => seg).pop()
   })).sort((a, b) => (a.name > b.name ? 1 : -1));
+  dispatch(fetchImage(usersToSet));
   dispatch({ type: FETCH_PEOPLE, payload: usersToSet });
 };
 
 export const updatePeople = (newArr) => dispatch => {
+  console.log("updatePeople", newArr);
   dispatch({type: UPDATE_PEOPLE, payload: newArr});
 }
 
