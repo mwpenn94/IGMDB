@@ -1,17 +1,15 @@
-import people from '../apis/people';
-import { fetchImage } from './unsplashActions' 
-import history from '../history';
+import people from '../../apis/people';
 import {
   SIGN_IN,
   SIGN_OUT,
   FETCH_PEOPLE,
-  FETCH_PERSON,
   FETCH_SPECIES,
   FETCH_FILM,
   FETCH_STARSHIP,
   SEARCH_PEOPLE,
-  SEARCH
+  UPDATE_PEOPLE,
 } from './types';
+import { fetchImage } from './unsplashActions';
 
 export const signIn = userId => {
   return {
@@ -26,39 +24,21 @@ export const signOut = () => {
   };
 };
 
-export const fetchPeople = () => {
-  return (dispatch) => {
-    return people.get('people').then(async response => {
-        console.log("response fetchPeople", response);
-        if(response.data && response.data.results)
-        {
-          
-            const mappedPeople = response.data.results.map(async (obj, index)=>{
-              const imageUrl = await fetchImage(obj.name, index);
-              console.log("imageUrl", imageUrl);
-              obj.image = imageUrl;
-            });
-            dispatch({ type: FETCH_PEOPLE, payload: mappedPeople });
-            console.log("mappedPeople", mappedPeople)
-         return mappedPeople;
-        }
-    }
-    ).catch(err=>console.log(err.message))
-  }
+export const fetchPeople = () => async dispatch => {
+  const response = await people.get('people');
+  const usersToSet = response.data.results.map(user => ({
+    ...user,
+    id: user.url.split('/').filter(seg => seg).pop()
+  })).sort((a, b) => (a.name > b.name ? 1 : -1));
+  dispatch({ type: FETCH_PEOPLE, payload: usersToSet });
 };
 
-//export const fetchPeople = () => async dispatch => {
-//  const response = await people.get('people');
-//  dispatch({ type: FETCH_PEOPLE, payload: response.data.results });
-//};
+export const updatePeople = (newArr) => dispatch => {
+  dispatch({type: UPDATE_PEOPLE, payload: newArr});
+}
 
 export const searchPeople = (term) => async dispatch => {
-  dispatch({type: SEARCH_PEOPLE, payload: term })
-};
-
-export const fetchPerson = id => async dispatch => {
-  const response = await people.get(`people/${id}`);
-  dispatch({ type: FETCH_PERSON, payload: response.data });
+  dispatch({ type: SEARCH_PEOPLE, payload: term })
 };
 
 export const fetchSpecies = (userUrl, speciesUrls) => async dispatch => {
@@ -96,5 +76,5 @@ export const fetchStarship = id => async dispatch => {
   dispatch({ type: FETCH_STARSHIP, payload: response.data });
 };
 
-const getEntityId = url =>  url.split('/').filter(segment => segment).pop();
+const getEntityId = url => url.split('/').filter(segment => segment).pop();
 

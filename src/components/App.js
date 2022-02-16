@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import StreamListContainer from './streams/StreamListContainer';
-import StreamShowContainer from './streams/StreamShowContainer';
+import StreamListContainer from './streams/ProfileListContainer';
+import StreamShowContainer from './streams/ProfileShowContainer';
 import Header from './Header';
 import history from '../history';
 

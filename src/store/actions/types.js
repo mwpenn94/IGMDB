@@ -7,4 +7,4 @@ export const FETCH_SPECIES = 'FETCH_SPECIES';
 export const FETCH_FILM = 'FETCH_FILM';
 export const FETCH_STARSHIP = 'FETCH_STARSHIP';
 export const SEARCH_PEOPLE = 'SEARCH_PEOPLE';
-export const FETCH_IMAGE = 'FETCH_IMAGE'
+export const UPDATE_PEOPLE = 'UPDATE_PEOPLE';

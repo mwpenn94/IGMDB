@@ -1,13 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {searchPeople} from '../actions/index'
+import { searchPeople } from '../store/actions/index'
+import { fetchPeople } from '../store/actions/index'
 
 class SearchBar extends React.Component {
   state = { term: '' };
 
   onInputChange = event => {
     this.setState({ term: event.target.value });
-    this.props.searchPeople(event.target.value)
+    this.props.searchPeople(event.target.value);
   };
 
   onFormSubmit = event => {

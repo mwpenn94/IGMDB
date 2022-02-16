@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPeople } from '../../actions';
-import { fetchImage } from '../../actions/unsplashActions';
-import StreamList from './StreamList';
+import { fetchPeople, updatePeople } from '../../store/actions';
+import { fetchImage } from '../../store/actions/unsplashActions';
+import ProfileList from './ProfileList';
 
 const mapStateToProps = state => {
   return {
     people: state.people.people,
+    defaultPeople: state.people.defaultPeople,
     currentUserId: state.auth.userId,
     isSignedIn: state.auth.isSignedIn,
     term: state.people.term
@@ -15,5 +16,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchPeople, fetchImage }
-)(StreamList);
+  { fetchPeople, fetchImage, updatePeople }
+)(ProfileList);

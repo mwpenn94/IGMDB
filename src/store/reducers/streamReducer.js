@@ -5,18 +5,21 @@ import {
   FETCH_SPECIES,
   FETCH_FILM,
   FETCH_STARSHIP,
-  SEARCH_PEOPLE
+  SEARCH_PEOPLE,
+  UPDATE_PEOPLE,
 } from '../actions/types';
 
-const initialstate = { people: [] }
+const initialstate = { 
+  people: [], 
+  defaultPeople: []
+}
 
 export default (state = initialstate, action) => {
   switch (action.type) {
+    case UPDATE_PEOPLE:
+      return  { ...state, people: action.payload };
     case FETCH_PEOPLE:
-      console.log("StreamReducer Line14", state.payload)
-      return { ...state, people: action.payload, filteredPeople: action.payload };
-    case FETCH_PERSON:
-      return { ...state, [action.payload.id]: action.payload };  
+      return { ...state, people: action.payload, defaultPeople: action.payload, filteredPeople: action.payload, term: "" };
     case FETCH_SPECIES:
       const peopleToSet1 = state.people.map(person => {
         if (person.url === action.payload.personUrl) {
