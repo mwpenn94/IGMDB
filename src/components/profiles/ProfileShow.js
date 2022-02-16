@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchSpecies, fetchFilm, fetchFilms, fetchStarships } from '../../store/actions';
 
 class ProfileShow extends React.Component {
   constructor(props) {
@@ -80,7 +81,7 @@ class ProfileShow extends React.Component {
     
   render() {
     if (!this.props.person) {
-      return <div>Loading...</div>;
+      return <i class="sync icon"></i>;
     }
     return (
       <div>
@@ -104,4 +105,13 @@ class ProfileShow extends React.Component {
   }
 }
 
-export default ProfileShow;
+const mapStateToProps = (state, ownProps) => {
+  return { 
+    person: state.people.people.find(person => person.id === ownProps.match.params.id)
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchSpecies, fetchFilm, fetchFilms, fetchStarships }
+)(ProfileShow);

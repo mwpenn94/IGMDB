@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { fetchPeople } from '../../store/actions';
 import SearchBar from '../SearchBar';
 
 class ProfileList extends React.Component {
@@ -64,4 +66,18 @@ class ProfileList extends React.Component {
   }
 }
 
-export default ProfileList;
+const mapStateToProps = state => {
+  return {
+    people: state.people.people,
+    update: state.people.update,
+    defaultPeople: state.people.defaultPeople,
+    currentUserId: state.auth.userId,
+    isSignedIn: state.auth.isSignedIn,
+    term: state.people.term
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  { fetchPeople }
+)(ProfileList);
