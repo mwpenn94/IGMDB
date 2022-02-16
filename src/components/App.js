@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import StreamListContainer from './streams/ProfileListContainer';
-import StreamShowContainer from './streams/ProfileShowContainer';
+import ProfileListContainer from './profiles/ProfileListContainer';
+import ProfileShowContainer from './profiles/ProfileShowContainer';
 import Header from './Header';
 import history from '../history';
 
@@ -12,8 +12,8 @@ const App = () => {
         <div>
           <Header />
           <Switch>
-            <Route path="/" exact component={StreamListContainer} />
-            <Route path="/people/:id" exact component={StreamShowContainer} />
+            <Route path="/" exact component={ProfileListContainer} />
+            <Route path="/people/:id" exact component={ProfileShowContainer} />
           </Switch>
         </div>
       </Router>

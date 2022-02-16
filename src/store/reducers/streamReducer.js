@@ -1,7 +1,6 @@
 import _ from 'lodash';
 import {
   FETCH_PEOPLE,
-  FETCH_PERSON,
   FETCH_SPECIES,
   FETCH_FILM,
   FETCH_STARSHIP,
@@ -11,15 +10,14 @@ import {
 
 const initialstate = { 
   people: [], 
-  defaultPeople: []
+  defaultPeople: [],
+  term:'',
 }
 
 export default (state = initialstate, action) => {
   switch (action.type) {
-    case UPDATE_PEOPLE:
-      return  { ...state, people: action.payload };
     case FETCH_PEOPLE:
-      return { ...state, people: action.payload, defaultPeople: action.payload, filteredPeople: action.payload, term: "" };
+      return { ...state, people: action.payload, defaultPeople: action.payload, term: "" };
     case FETCH_SPECIES:
       const peopleToSet1 = state.people.map(person => {
         if (person.url === action.payload.personUrl) {
@@ -48,7 +46,9 @@ export default (state = initialstate, action) => {
       });
       return { ...state, people: peopleToSet3 };
     case SEARCH_PEOPLE: 
-      return { ...state, term: action.payload };      
+      return { ...state, term: action.payload };
+    case UPDATE_PEOPLE:
+      return  { ...state, people: action.payload };      
     default:
       return state;
   }

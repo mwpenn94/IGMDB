@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchSpecies, fetchFilm, fetchFilms, fetchStarships } from '../../store/actions';
-import { fetchImage } from '../../store/actions/unsplashActions';
+//import { fetchImage } from '../../store/actions/unsplashActions';
 import ProfileShow from './ProfileShow';
 
 
@@ -13,5 +13,5 @@ const mapStateToProps = (state, ownProps) => {
 
 export default connect(
   mapStateToProps,
-  { fetchSpecies, fetchFilm, fetchFilms, fetchStarships, fetchImage }
+  { fetchSpecies, fetchFilm, fetchFilms, fetchStarships }
 )(ProfileShow);
