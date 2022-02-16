@@ -1,7 +1,7 @@
 import React from 'react';
 import { Router, Route, Switch } from 'react-router-dom';
-import ProfileListContainer from './profiles/ProfileListContainer';
-import ProfileShowContainer from './profiles/ProfileShowContainer';
+import ProfileList from './profiles/ProfileList';
+import ProfileShow from './profiles/ProfileShow';
 import Header from './Header';
 import history from '../history';
 
@@ -12,8 +12,8 @@ const App = () => {
         <div>
           <Header />
           <Switch>
-            <Route path="/" exact component={ProfileListContainer} />
-            <Route path="/people/:id" exact component={ProfileShowContainer} />
+            <Route path="/" exact component={ProfileList} />
+            <Route path="/people/:id" exact component={ProfileShow} />
           </Switch>
         </div>
       </Router>
