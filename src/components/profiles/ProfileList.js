@@ -19,16 +19,18 @@ class ProfileList extends React.Component {
       if(this.props.term === '' && defaultPeople.length > people.length || defaultPeople.length > people.length)
       {
         const filtered1 = defaultPeople && defaultPeople.filter(person => {
-          const regExp = new RegExp(`^${term}`, 'gi');
-          return person.name.match(regExp)
+          let term1 = term.toLowerCase();
+          let name = person.name.toLowerCase();
+          return name.indexOf(term1) > -1
         }); 
         this.setState({localStatePeople:filtered1})
       }
       else
       {
         const filtered2 = people && people.filter(person => {
-          const regExp = new RegExp(`^${term}`, 'gi');
-          return person.name.match(regExp)
+          let term2 = term.toLowerCase();
+          let name = person.name.toLowerCase();
+          return name.indexOf(term2) > -1
         });
         this.setState({localStatePeople:filtered2})
       }
